@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://im6hn0mvab4g"]
+
+[ext_resource type="PackedScene" uid="uid://dv27x5o31xcvi" path="res://levels/main.tscn" id="1_pg31m"]
+
+[node name="Level1" instance=ExtResource("1_pg31m")]
+
+[node name="HUD" parent="." index="3"]
+level_title = "Jump King Level"
+level_description = "This level is based on the first section of the game Jump King"

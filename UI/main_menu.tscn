@@ -1,0 +1,131 @@
+[gd_scene load_steps=4 format=3 uid="uid://l3ssde2vq0q6"]
+
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_o5rwn"]
+[ext_resource type="FontFile" uid="uid://bp56qjq2002pn" path="res://UI/Kenney Thick.ttf" id="2_t0r7d"]
+[ext_resource type="AudioStream" uid="uid://bpiva7i2wvrff" path="res://audio/2DShooterMenuFinal.mp3" id="3_0uwg7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5rwn")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(3.60981e-08, 0.350507, 0.227889, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 96
+text = "Slime Climb"
+horizontal_alignment = 1
+
+[node name="ButtonSpacing" type="Control" parent="MarginContainer/MainVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ButtonVBox" type="VBoxContainer" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="ControlsButton" type="Button" parent="MarginContainer/MainVBox/ButtonVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 42
+text = "Controls"
+
+[node name="Level3Button" type="Button" parent="MarginContainer/MainVBox/ButtonVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 42
+text = "Tutorial"
+
+[node name="Level1Button" type="Button" parent="MarginContainer/MainVBox/ButtonVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 42
+text = "Jump King Level"
+
+[node name="Level2Button" type="Button" parent="MarginContainer/MainVBox/ButtonVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 42
+text = "Doodle Jump Level"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/MainVBox/ButtonVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 42
+text = "Exit"
+
+[node name="ControlsPopup" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsPopup"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="TitleLabel" type="Label" parent="ControlsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 75
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="ControlsText" type="Label" parent="ControlsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 50
+text = "[W] / [SPACE] - Jump
+[A] / [LEFT] - Move Left
+[D] / [RIGHT] - Move Right
+[Esc] - Pause
+[R] - Quick Restart"
+
+[node name="CloseButton" type="Button" parent="ControlsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t0r7d")
+theme_override_font_sizes/font_size = 50
+text = "Close"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0uwg7")
+volume_db = -24.0
+autoplay = true

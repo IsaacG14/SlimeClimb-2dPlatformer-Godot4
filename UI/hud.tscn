@@ -1,0 +1,196 @@
+[gd_scene load_steps=4 format=3 uid="uid://rnvaxgd4kl58"]
+
+[ext_resource type="Script" path="res://UI/hud.gd" id="1_btou4"]
+[ext_resource type="FontFile" uid="uid://bp56qjq2002pn" path="res://UI/Kenney Thick.ttf" id="2_pg3e8"]
+[ext_resource type="AudioStream" uid="uid://d2e0pgy3m3uqw" path="res://audio/WinSound.wav" id="3_lf3ec"]
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_btou4")
+
+[node name="StartPopup" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartPopup"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="LevelText" type="Label" parent="StartPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 40
+text = "Jump King Level"
+horizontal_alignment = 1
+
+[node name="PromptText" type="Label" parent="StartPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 40
+text = "Press \"SPACE\" to Play"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="InGameHUD" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.4625
+anchor_right = 0.5375
+offset_left = -179.0
+offset_right = 179.0
+offset_bottom = 40.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InGameHUD"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="JumpLabel" type="Label" parent="InGameHUD/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 20
+text = "Jumps: 0"
+
+[node name="TimeLabel" type="Label" parent="InGameHUD/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 20
+text = "Time: 00:00:00"
+
+[node name="EndPopup" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndPopup"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="WinText" type="Label" parent="EndPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 40
+text = "Level Complete"
+
+[node name="StatsText" type="Label" parent="EndPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 40
+
+[node name="PausePopup" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePopup"]
+layout_mode = 2
+theme_override_constants/separation = 34
+
+[node name="PauseLabel" type="Label" parent="PausePopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 55
+text = "Paused"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="PausePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PausePopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="PausePopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="RestartButton" type="Button" parent="PausePopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="PausePopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="SettingsPopup" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -39.0
+offset_right = 182.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="SettingsTitle" type="Label" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 55
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="HideHudCheckbox" type="CheckBox" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 32
+text = "Disable TIMER and JUMPS"
+
+[node name="HideMusicCheckbox" type="CheckBox" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 32
+text = "Disable MUISC"
+
+[node name="BackButton" type="Button" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pg3e8")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lf3ec")
+volume_db = -20.0
